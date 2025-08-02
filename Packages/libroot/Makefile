@@ -1,7 +1,7 @@
 TARGET = libroot.dylib
 CC = clang
 
-CFLAGS = -I../../BaseBin/.include -Isrc -isysroot $(shell xcrun --sdk iphoneos --show-sdk-path) -arch arm64 -arch arm64e -miphoneos-version-min=15.0 -fobjc-arc -O2
+CFLAGS = -I../../BaseBin/.include -Isrc -isysroot $(shell xcrun --sdk iphoneos --show-sdk-path) -arch arm64 -arch arm64e -arch x86_64 -miphoneos-version-min=15.0 -fobjc-arc -O2
 LDFLAGS = -dynamiclib -rpath /var/jb
 
 all: $(TARGET) sign
