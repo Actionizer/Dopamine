@@ -17,10 +17,10 @@ Dopamine.ipa: build/Build/Products/Debug-iphoneos/Dopamine.app
 
 ifeq ($(NIGHTLY), 1)
 build/Build/Products/Debug-iphoneos/Dopamine.app: FORCE
-	xcodebuild -scheme Dopamine -derivedDataPath build -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO GCC_PREPROCESSOR_DEFINITIONS='NIGHTLY=1 COMMIT_HASH=\"$(COMMIT_HASH)\"'
+	xcodebuild -scheme Dopamine -derivedDataPath build -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO GCC_PREPROCESSOR_DEFINITIONS='NIGHTLY=1 COMMIT_HASH=\"$(COMMIT_HASH)\" only_active_arch=no archs=x86_64'
 else
 build/Build/Products/Debug-iphoneos/Dopamine.app: FORCE
-	xcodebuild -scheme Dopamine -derivedDataPath build -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+	xcodebuild -scheme Dopamine -derivedDataPath build -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO only_active_arch=no archs=x86_64
 endif
 
 clean:
